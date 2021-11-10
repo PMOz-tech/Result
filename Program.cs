@@ -9,17 +9,17 @@ namespace Result
     {
         static void Main(string[] args)
         {
+            //get txt path
             var performanceSheet = "c:\\Performance.txt";
-           // File.Create(performanceSheet);
-            foreach (var line in File.ReadAllLines(performanceSheet))
-            {
-               Console.WriteLine(line);
-            }
+          
+           //read the lines from the path
             var scores = System.IO.File.ReadAllLines(performanceSheet);
             for(int i=0; i<scores.Length; i++)
             {
+                // remove the hypen from the array split them to indexes
                 string [] student = scores[i].Split("-");
-
+                
+                //Get the scores of those below and above fifty add bonus points and append to the file and as wll output them.
                 if (Convert.ToInt32(student[1]) < 50)
                 {
                     Console.WriteLine($" Below fifty student results: {student[0]} -{student[1]}");
